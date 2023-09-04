@@ -1,0 +1,23 @@
+@media (prefers-color-scheme: dark) {
+  .header-outer {
+    filter: brightness(80%);
+  }
+  .content-inner {
+    background: #000;
+  }
+  .tabs-outer, .main-outer, .footer-outer {
+    filter: invert(100%) hue-rotate(10deg) brightness(90%);
+  }
+  .main-outer img, .footer-outer img, .main-outer video, .main-outer iframe {
+    filter: hue-rotate(-10deg) invert(100%);
+  }
+  img#Image5_img {
+    filter: hue-rotate(-30deg) invert(100%);
+  }
+  a:link {
+    filter: hue-rotate(10deg);
+  }
+  #navbar {
+    display: none;
+  }
+}
