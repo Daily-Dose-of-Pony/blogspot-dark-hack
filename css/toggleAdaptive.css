@@ -1,3 +1,6 @@
+body.prefer-dark #navbar {
+	display: none;
+}
 @media (prefers-color-scheme: dark) {
 	body:not(body.prefer-light) .header-outer {
 		filter: brightness(80%);
@@ -21,9 +24,6 @@
 	}
 	body:not(body.prefer-light) a:link {
 		filter: hue-rotate(10deg);
-	}
-	body:not(body.prefer-light) #navbar {
-		display: none;
 	}
 }
 @media (prefers-color-scheme: light) {
@@ -49,8 +49,5 @@
 	}
 	body.prefer-dark a:link {
 		filter: hue-rotate(10deg);
-	}
-	body.prefer-dark #navbar {
-		display: none;
 	}
 }
