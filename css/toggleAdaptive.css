@@ -1,4 +1,4 @@
-body.prefer-dark #navbar {
+#navbar {
 	display: none;
 }
 @media (prefers-color-scheme: dark) {
