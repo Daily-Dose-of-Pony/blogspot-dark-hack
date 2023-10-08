@@ -1,0 +1,28 @@
+@media (prefers-color-scheme: dark) {
+	body:not(body.prefer-light) .header-outer {
+		filter: brightness(80%);
+	}
+	body:not(body.prefer-light) .content-inner {
+		background: #000;
+	}
+	body:not(body.prefer-light) .tabs-outer,
+	body:not(body.prefer-light) .main-outer,
+	body:not(body.prefer-light) .footer-outer {
+		filter: invert(100%) hue-rotate(10deg) brightness(90%);
+	}
+	body:not(body.prefer-light) .main-outer img,
+	body:not(body.prefer-light) .footer-outer img,
+	body:not(body.prefer-light) .main-outer video,
+	body:not(body.prefer-light) .main-outer iframe {
+		filter: hue-rotate(-10deg) invert(100%);
+	}
+	body:not(body.prefer-light) img#Image5_img {
+		filter: hue-rotate(-30deg) invert(100%);
+	}
+	body:not(body.prefer-light) a:link {
+		filter: hue-rotate(10deg);
+	}
+	body:not(body.prefer-light) #navbar {
+		display: none;
+	}
+}
