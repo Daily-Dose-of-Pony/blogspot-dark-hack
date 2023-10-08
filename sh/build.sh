@@ -12,14 +12,17 @@ echo "Building JavaScript."
 substRules='s/{var /{let /g;s/;var /;let /g'
 ls -1 src | while IFS= read -r dir ; do
 	if [ -e "src/${dir}/index.js" ] ; then
-		shx live $dir --minify $1 > /dev/null
+		printf "Building JS target \"${dir}\"... "
+		shx live $dir --minify $1 > /dev/null && echo "done."
 		sed -zi "$substRules" "dist/${dir}.js"
 	fi
 	if [ -e "src/${dir}/index.mjs" ] ; then
-		shx live $dir --minify $1 > /dev/null
+		printf "Building JS module \"${dir}\"... "
+		shx live $dir --minify $1 > /dev/null && echo "done."
 		sed -zi "$substRules" "dist/${dir}.mjs"
 	fi
 done
+echo "Building done!"
 #rm -rv proxy/*.map
 # Finalizing most builds
 #ls -1 src | while IFS= read -r dir ; do
