@@ -2,18 +2,22 @@
 mkdir -p dist
 #mkdir -p proxy
 # Remove the dev files
-rm -r dist/*.js
-rm -r dist/*.map
-rm -r dist/*.mjs
+rm -r dist/*.js 2> /dev/null
+rm -r dist/*.map 2> /dev/null
+rm -r dist/*.mjs 2> /dev/null
 # Using esbuild to build all JS files
 #esbuild --bundle src/index.js --outfile=dist/index.js --minify --sourcemap
 #esbuild --bundle src/index.js --target=es6 --outfile=dist/index.es6.js --minify --sourcemap
+echo "Building JavaScript."
+substRules='s/{var /{let /g;s/;var /;let /g'
 ls -1 src | while IFS= read -r dir ; do
 	if [ -e "src/${dir}/index.js" ] ; then
 		shx live $dir --minify $1 > /dev/null
+		sed -zi "$substRules" "dist/${dir}.js"
 	fi
 	if [ -e "src/${dir}/index.mjs" ] ; then
 		shx live $dir --minify $1 > /dev/null
+		sed -zi "$substRules" "dist/${dir}.mjs"
 	fi
 done
 #rm -rv proxy/*.map
