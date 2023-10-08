@@ -26,3 +26,31 @@
 		display: none;
 	}
 }
+@media (prefers-color-scheme: light) {
+	body.prefer-dark .header-outer {
+		filter: brightness(80%);
+	}
+	body.prefer-dark .content-inner {
+		background: #000;
+	}
+	body.prefer-dark .tabs-outer,
+	body.prefer-dark .main-outer,
+	body.prefer-dark .footer-outer {
+		filter: invert(100%) hue-rotate(10deg) brightness(90%);
+	}
+	body.prefer-dark .main-outer img,
+	body.prefer-dark .footer-outer img,
+	body.prefer-dark .main-outer video,
+	body.prefer-dark .main-outer iframe {
+		filter: hue-rotate(-10deg) invert(100%);
+	}
+	body.prefer-dark img#Image5_img {
+		filter: hue-rotate(-30deg) invert(100%);
+	}
+	body.prefer-dark a:link {
+		filter: hue-rotate(10deg);
+	}
+	body.prefer-dark #navbar {
+		display: none;
+	}
+}
