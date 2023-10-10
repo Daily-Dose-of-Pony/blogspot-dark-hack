@@ -1,4 +1,5 @@
 #!/bin/bash
+echo -e "\033[1;37mLightingale Hyacinth\033[0m"
 mkdir -p dist
 #mkdir -p proxy
 # Remove the dev files
@@ -8,7 +9,14 @@ rm -r dist/*.mjs 2> /dev/null
 # Using esbuild to build all JS files
 #esbuild --bundle src/index.js --outfile=dist/index.js --minify --sourcemap
 #esbuild --bundle src/index.js --target=es6 --outfile=dist/index.es6.js --minify --sourcemap
-echo "Building JavaScript."
+echo "Now building CSS."
+ls -1 css | while IFS= read -r dir ; do
+	if [ -e "css/${dir}/index.css" ] ; then
+		printf "Building CSS target \"${dir}\"... "
+		shx skin $dir --minify $1 > /dev/null && echo "done."
+	fi
+done
+echo "Now building JS."
 substRules='s/{var /{let /g;s/;var /;let /g'
 ls -1 src | while IFS= read -r dir ; do
 	if [ -e "src/${dir}/index.js" ] ; then
